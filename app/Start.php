@@ -16,7 +16,7 @@ class Start
 
 		if ( !empty($routes[0]) )
 		{	
-			$controller_name = $routes[0];	// берем имя Контроллера
+			$controller_name = ucfirst(strtolower($routes[0]));	// берем имя Контроллера
 		}
 		
 		if ( !empty($routes[1]) )
@@ -29,39 +29,31 @@ class Start
 		}
 
 		// Сформируем Имя Модели
-		$model_file = 'Model'.strtolower($controller_name).'.php';
-		$model_path = "app/models/".$model_file;
+		$model_file = 'Model'.$controller_name.'.php';
+		$model_path = __DIR__."/models/".$model_file;
 		if(file_exists($model_path))
 		{
-			include "app/models/".$model_file;
+			include "models/".$model_file;
 			$model_name = substr($model_file, 0, -4);
 		}
 	
 		// Сформируем Имя Контроллера
-		$controller_file = strtolower($controller_name).'.php';
-		$controller_path = "app/controllers/".$controller_file;
-
+		$controller_file = $controller_name.'.php';
+		$controller_path = __DIR__."/controllers/".$controller_file;
+	
 		if(file_exists($controller_path))
-		{
-			include "app/controllers/".$controller_file;
-		}
+			require_once $controller_path;
 		else
-		{
 			$this->Error404();
-		}
-		
+	
 		//Подключаем Контроллер
+		
 		$controller = new $controller_name($model_name);
 		
 		if(method_exists($controller, $action_name))
-		{
 			call_user_func_array([$controller, $action_name], $params);
-		}
 		else
-		{
 			$this->Error404();
-		}
-		
 	}
 
 	public function Error404()
@@ -70,7 +62,7 @@ class Start
         header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
 		header('Location:'.$host.'abort');
-		exit(0);
+		exit;
     }
     
 }

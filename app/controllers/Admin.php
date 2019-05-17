@@ -1,15 +1,14 @@
 <?php
 class Admin extends Controller
 {
-    public $before = ['admin', 'csrf'];
     public $layout = 'admin';
 	
 	public function index()
 	{
         $users = $this->model->findAll();
-
+		
         // Исполнение Вида - Авторизации
-		$this->view->render('admin', ['users'=>$users]);
+		$this->view->render('index', ['users'=>$users]);
 	}
 
     public function usercreate(){
@@ -46,7 +45,7 @@ class Admin extends Controller
         }
 
         // Исполнение Вида - Авторизации
-        $this->view->render('admin_usercreate', $var);
+        $this->view->render('usercreate', $var);
     }
 
     // Удаление пользователя через AJAX
@@ -68,6 +67,8 @@ class Admin extends Controller
                 ['id', '=', $id ]
             ]);
 
+		if(!$var) $this->redirect('admin', 'Такого пользователя нет!');
+			
         if($this->isPost() && isset($_POST['createuser'])){
 
             $_POST['username'] = $this->clear($_POST['username']);
@@ -98,7 +99,7 @@ class Admin extends Controller
         }
 
         // Исполнение Вида - Авторизации
-        $this->view->render('admin_useredit', $var);
+        $this->view->render('useredit', $var);
     }
 
     public function logout(){

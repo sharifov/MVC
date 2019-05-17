@@ -4,9 +4,9 @@ class Model
     //Доступы в базу 
     protected $host='localhost';
     protected $user='root';
-    protected $db='miladapp';
+    protected $db='appmvc';
     protected $prefix;
-    protected $pass='';
+    protected $pass='123';
     protected $conn;
     protected $columns;
     protected $table_name;

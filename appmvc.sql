@@ -23,34 +23,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ppadalim_users`
+-- Table structure for table `cvmppa_users`
 --
 
-CREATE TABLE IF NOT EXISTS `ppadalim_users` (
+CREATE TABLE IF NOT EXISTS `cvmppa_users` (
   `id` int(3) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `is_admin` tinyint(1) NOT NULL,
   `password_text` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ppadalim_users`
+-- Dumping data for table `cvmppa_users`
 --
 
-INSERT INTO `ppadalim_users` (`id`, `username`, `password`, `is_admin`, `password_text`) VALUES
+INSERT INTO `cvmppa_users` (`id`, `username`, `password`, `is_admin`, `password_text`) VALUES
 (1, 'admin', 'f492dc2964df6e0c9dd556e2bca8d4f1', 1, '123'),
-(21, 'sergey', 'dd95b1ca8dca61e3ab7ca3f18bbdef78', 0, '444'),
-(22, 'milad', '4b2337f2e0df9d79cec18739f1970850', 1, '777');
+(2, 'milad', '4b2337f2e0df9d79cec18739f1970850', 1, '777');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `ppadalim_users`
+-- Indexes for table `cvmppa_users`
 --
-ALTER TABLE `ppadalim_users`
+ALTER TABLE `cvmppa_users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -58,10 +57,10 @@ ALTER TABLE `ppadalim_users`
 --
 
 --
--- AUTO_INCREMENT for table `ppadalim_users`
+-- AUTO_INCREMENT for table `cvmppa_users`
 --
-ALTER TABLE `ppadalim_users`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+ALTER TABLE `cvmppa_users`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

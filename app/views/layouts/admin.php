@@ -17,7 +17,7 @@
     <ul class="menu radius">
         <li><a href="<?=$this->route('admin/usercreate')?>">Создать Пользователя</a></li>
     </ul>
-    <?include 'app/views/'.$content_view.'.php';?>
+    <?$this->page()?>
     <div class="notice"><?=$notice?></div>
 </div>
 </body>

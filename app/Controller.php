@@ -5,7 +5,7 @@ class Controller {
 	public $model;
 	public $view;
 	public $before = [];
-    public $layout = 'index';
+    public $layout = 'main';
 	
 	public function __construct($model_name)
 	{
@@ -18,10 +18,10 @@ class Controller {
 				$this->accessData[$access] = $_SESSION[$access];
 			}
 		}
-
+	
 		// Определяем определенный Модел и Вид 
 		$this->model = new $model_name;
-		$this->view = new View($this->layout, $this->accessData);
+		$this->view = new View($this->layout, $this->accessData, get_class($this));
 	}
 
 	// Очистка данных из запросов

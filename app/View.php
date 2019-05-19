@@ -1,7 +1,6 @@
 <?php
 class View
 {
-
 	private $folder = 'main';
 	private $page = 'index';
 	private $layout;
@@ -22,13 +21,17 @@ class View
             $this->layout = $layout;
         }
 		
-		if($folder) $this->folder = strtolower($folder);
+		if($folder) $this->folder = $folder;
 
         if(!empty($accessData)){
             $this->data = array_merge($this->data, $accessData);
         }
     }
 
+	public function setLayout($layout){
+		$this->layout = $layout;
+	}
+	
     // Для вывода вида
 	public function render($page, $data = null)
 	{
@@ -48,8 +51,12 @@ class View
         return 'http://'.$_SERVER['HTTP_HOST'].'/'.$route;
     }
 
-	public function page(){
-		$page = __DIR__.'/views/templates/'.$this->folder.'/'.$this->page.'.php';
+	public function page($partial=false){
+		
+		if($partial)
+			$page = __DIR__.'/views/templates/'.$this->folder.'/'.'partials/'.$partial.'.php';
+		else
+			$page = __DIR__.'/views/templates/'.$this->folder.'/'.$this->page.'.php';
 	
 		extract($this->data);
 		

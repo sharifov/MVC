@@ -5,10 +5,31 @@ class Admin extends Controller
 	
 	public function index()
 	{
+		if($this->isPost() && isset($_POST['admin'])){
+			$_POST['username'] = $this->clear($_POST['username']);
+            $_POST['password'] = $this->clear($_POST['password']);
+
+            $res = $this->model->findWhere([
+                ['username', '=', $_POST['username'] ],
+                ['password', '=', $this->hash($_POST['password']) ],
+                ['is_admin', '=', 1]
+            ], 'users');
+
+            if(!$res){
+                $arr['notice'] = 'Доступ не провильный!';
+            }else{
+                $this->login($res['username'], true);
+                $this->redirect('admin');
+            }
+		}
+		
         $users = $this->model->findAll();
 		
-        // Исполнение Вида - Авторизации
-		$this->view->render('index', ['users'=>$users]);
+		$is_login = $this->filterAdmin();
+		
+		if(!$is_login) $this->view->setLayout('auth');
+		
+		$this->view->render('index', ['is_login'=>$is_login,'users'=>$users]);
 	}
 
     public function usercreate(){
@@ -101,8 +122,5 @@ class Admin extends Controller
         // Исполнение Вида - Авторизации
         $this->view->render('useredit', $var);
     }
-
-    public function logout(){
-        parent::logout();
-    }
+	
 }

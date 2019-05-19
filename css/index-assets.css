@@ -1,0 +1,350 @@
+/* nivo-slider.css, scroller.css, map-style.css */
+
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Skin Type: flexible
+Description: The default skin for the Nivo Slider.
+Version: 1.2
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+*/
+
+.theme-default .nivoSlider {
+	background:#fff url(../img/loading.gif) no-repeat 50% 50%;
+	width: 999px;
+	height: 288px;
+	position: relative;
+}
+.theme-default .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-default .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.theme-default .nivo-controlNav {
+	text-align: center;
+	padding: 20px 0;
+}
+.theme-default .nivo-controlNav a {
+	display:inline-block;
+	width:22px;
+	height:22px;
+	background:url(../img/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin: 0 2px;
+}
+.theme-default .nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.theme-default .nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(../img/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+.theme-default a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+.theme-default a.nivo-prevNav {
+	left:15px;
+}
+
+.theme-default .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.theme-default .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-default .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-default .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
+
+
+/*
+ * jQuery Nivo Slider v3.0.1
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+	width:100%;
+	height:auto;
+	overflow: hidden;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important; 
+	width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+	top:0;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+	overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background-image:url(../img/slide-caption-bg-full.png);
+	color:#fff;
+	width:100%;
+	height:110px;
+	z-index:8;
+	padding: 0px 20px;
+	overflow: hidden;
+	display: none;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+	text-align:center;
+	padding: 15px 0;
+}
+.nivo-controlNav a {
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+
+
+/*default CSS for SAG scroller*/
+
+.sagscroller{
+	width: 333px;  /*default width of scroller*/
+	height:385px;
+	overflow:hidden;
+	position:relative;
+}
+
+.sagscroller a{
+font-weight:bold;
+text-decoration:none;
+color:#2363a0;
+}
+
+.sagscroller ul{
+position:absolute;
+margin:0;
+padding:0;
+list-style:none;
+width: 100%;
+}
+
+.sagscroller ul li{
+	padding-top:5px;
+	line-height:16px;
+	display: block;
+}
+
+
+/* #SAG scroller demo #1 */
+
+div#mysagscroller{
+width: 200px;  /*width of scroller*/
+height:250px;
+}
+
+div#mysagscroller ul li{
+background:navy;
+color:white;
+padding:5px;
+margin-bottom:5px; /*bottom spacing between each LI*/
+}
+
+div#mysagscroller ul li:first-letter{
+font-size:28px;
+background:white;
+color:black;
+padding:0 2px;
+margin-right:2px;
+}
+
+div#mysagscroller1 ul li{
+padding:7px;
+border-bottom:1px solid #eee;
+margin-bottom:7px; /*bottom spacing between each LI*/
+}
+
+
+
+/* #SAG scroller demo #2 */
+
+div#mysagscroller2{
+	width: 610px; /*width of scroller*/
+	height:40px;
+	float:left;
+	margin-left: 5px;
+}
+
+div#mysagscroller2 ul li img{
+border-width:0;
+display:block; /*this causes each image to be flush against each other*/
+}
+
+.scroller-author-details {
+	margin-top:3px;
+	font-weight:bold;
+}
+
+
+.sagscroller ul li .rsscontent{ /*div containing body of each RSS entry*/
+font-size:90%;
+float:left;
+}
+
+.sagscroller ul li .rsslabel{ /*div containing label of each RSS entry*/
+margin-top:5px;
+font-size:10px;
+font-style:italic;
+color:#666;
+clear: both;
+}
+
+
+/* #SAG scroller demo #3 */
+
+div#mysagscroller3{
+	width: 281px; /*width of scroller*/
+	height:112px;
+	float:left;
+	margin-left: 5px;
+}
+
+div#mysagscroller3 ul li img{
+border-width:0;
+display:block; /*this causes each image to be flush against each other*/
+}
+
+
+#mapwrapper {
+	width:682px;
+	margin:0 auto;
+	padding:0px 0;
+	background-color:#ffffff;
+	min-width:220px;
+}
+
+svg {
+  max-height:100%;
+}
+
+
+#map_base	{
+		height:445px;
+		width:98%;
+		margin:0px;
+}
+
+.unselectable {
+	-moz-user-select:none;
+	-webkit-user-select:none;
+}
+.tip{
+	display:none;
+	padding:5px;
+	border:1px solid #EBECED;
+	color:#edeef0;
+	font-weight: bold;
+	z-index:1000;
+	float:left;
+	position:absolute;
+	/*gradient color*/
+	background:#000;
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#494949', endColorstr='#656565'); /* IE6,IE7 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#494949', endColorstr='#656565')"; /* IE8 */ 
+	background-image: linear-gradient(to bottom, #494949 0%, #656565 100%);/* IE10 */ 
+	background: -moz-linear-gradient(top, #494949,#656565); /* Firefox */
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#494949), to(#656565));
+	word-break:keep-all;
+	white-space:nowrap;
+}
+

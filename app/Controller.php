@@ -6,11 +6,14 @@ class Controller {
 	public $view;
 	public $before = [];
     public $layout = 'main';
+    protected $name;
 	
 	public function __construct($model_name)
 	{
 		$_SESSION['csrf'] = isset($_SESSION['csrf']) ? $_SESSION['csrf'] : md5(uniqid(mt_rand().microtime())); // Уcтановливаем Token для Csrf
 
+		$this->name = strtolower(get_class($this));
+		
 		// Провераем доступ на вход
 		if(!empty($this->before)){
 			foreach($this->before as $access){
@@ -21,7 +24,7 @@ class Controller {
 	
 		// Определяем определенный Модел и Вид 
 		$this->model = new $model_name;
-		$this->view = new View($this->layout, $this->accessData, get_class($this));
+		$this->view = new View($this->layout, $this->accessData, $this->name);
 	}
 
 	// Очистка данных из запросов
@@ -59,7 +62,7 @@ class Controller {
 		elseif(isset($_SESSION['user']))
 			unset($_SESSION['user']);
 
-		$this->redirect();			
+		$this->redirect($this->name);			
 	}
 
 	public function checkAJAX(){

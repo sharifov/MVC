@@ -10,7 +10,7 @@
 <div class="container">
     <div class="flash"><?=$flash?></div>
     <h2 class="title">
-        <a href="<?=$this->route('admin')?>" class="login">Привет, <?=$admin?></a>
+        <a href="<?=$this->route('admin')?>" class="login">Привет, <?=$_SESSION['admin'] ?></a>
         Admin Panel
         <a href="<?=$this->route('admin/logout')?>" class="logout">Выйти</a>
     </h2>
